@@ -1,0 +1,25 @@
+{
+  "name": "learning_redux_coding_journey",
+  "version": "1.0.0",
+  "description": "I use this workspace to practice redux toolkit before i impliment the knowledge on my ongoing project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nqobile-the-redeemed/learning_redux_coding_journey.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nqobile-the-redeemed/learning_redux_coding_journey/issues"
+  },
+  "homepage": "https://github.com/Nqobile-the-redeemed/learning_redux_coding_journey#readme",
+  "dependencies": {
+    "immer": "^10.0.2",
+    "redux": "^4.2.1",
+    "redux-logger": "^3.0.6"
+  }
+}

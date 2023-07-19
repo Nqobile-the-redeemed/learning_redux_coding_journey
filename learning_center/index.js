@@ -79,17 +79,27 @@ function bookReducer(state = initalBookState, action) {
         return {
           ...state,
             payload: state.payload + action.payload,
-        };
+            };
         case BOOK_RETURNED:
           return {
             ...state,
             payload: state.payload - action.payload,
-          };
+            };
         case BOOKS_RESTOCKED:
           return {
             ...state,
             payload: state.payload + action.payload,
-          };
+            };
+        case NEW_READER:
+            return {
+                ...state,
+                payload: state.payload + 1,
+            };
+        case BULK_ADD_READERS:
+            return {
+                ...state,
+                payload: state.payload + action.payload.length,
+            };
         default:
         return state;
     }

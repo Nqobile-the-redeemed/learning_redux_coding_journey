@@ -12,7 +12,7 @@ const bookSlice = createSlice({
     reducers: {
         ordered: (state, action) => {
             state.bookQuantity --
-            state.bookNames.filter(book => book !== action.payload)
+            state.bookNames = state.bookNames.filter(book => book !== action.payload)
         },
         returned: (state, action) => {
             state.bookQuantity ++

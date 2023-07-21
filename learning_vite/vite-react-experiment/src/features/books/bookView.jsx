@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { addNew, remove, bulkAdd, bulkRemove } from './readerSlice.js';
+import { addNew, remove, bulkAdd, bulkRemove } from '../readers/readerSlice';
 import { ordered, returned, bulkAddBooks, bulkRemoveBooks  } from '../books/bookSlice.js'; // Import addNew from bookSlice.js
 
 
@@ -31,17 +31,15 @@ export const BookView = () => {
     // Handler for adding a single book
     const handleAddBook = () => {
         if (newBookName.trim() !== '') {
-        dispatch(ordered(newBookName));
+        dispatch(returned(newBookName));
         setNewBookName('');
         }
     };
 
     // Handler for removing a single book
     const handleRemoveBook = () => {
-        if (removeBookName.trim() !== '') {
-        dispatch(returned(removeBookName));
+        dispatch(ordered(removeBookName));
         setRemoveBookName('');
-        }
     };
 
     // Handler for bulk adding books
@@ -133,13 +131,23 @@ export const BookView = () => {
               <div>
                 <div>
                   <div>
-                    <input type="text" placeholder="Book Name" />
-                    <button onClick={} >Add Book</button>
+                    <input 
+                      type="text" 
+                      placeholder="Book Name" 
+                      value={newBookName}
+                      onChange={(e) => setNewBookName(e.target.value)}
+                    />
+                    <button onClick={handleAddBook} >Add Book</button>
                   </div>
                   <div>
                     <div>
                       <label htmlFor="bookName">Select a Book</label>
-                      <select name="bookName" id="bookName">
+                      <select 
+                        name="bookName" 
+                        id="bookName"
+                        value={removeBookName}
+                        onChange={(e) => setRemoveBookName(e.target.value)}
+                      >
                         {bookNames.map((name, index) => (
                           <option key={books[index]} value={name}>
                             {name}
@@ -147,7 +155,7 @@ export const BookView = () => {
                         ))}
                       </select>
                     </div>
-                    <button>Remove Book</button>
+                    <button onClick={handleRemoveBook}>Remove Book</button>
                   </div>
                 </div>
               </div>
